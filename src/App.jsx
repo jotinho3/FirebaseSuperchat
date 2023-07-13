@@ -18,13 +18,13 @@
 
 
     const app = initializeApp({
-      apiKey: "AIzaSyAcB2Ei1JEMmOEwaeB0MuEqE2uTpydmVm0",
-      authDomain: "superchatjotinho.firebaseapp.com",
-      projectId: "superchatjotinho",
-      storageBucket: "superchatjotinho.appspot.com",
-      messagingSenderId: "254045186021",
-      appId: "1:254045186021:web:611f6ce13c992b3495310c",
-      measurementId: "G-Q459P6R57X"
+      apiKey: "AIzaSyBZzBF5gNIARa5PiR3C16ccyWMpKKIqgak",
+  authDomain: "superchat-6af4f.firebaseapp.com",
+  projectId: "superchat-6af4f",
+  storageBucket: "superchat-6af4f.appspot.com",
+  messagingSenderId: "584254523555",
+  appId: "1:584254523555:web:c4da3bf2bd1bdfbf001716",
+  measurementId: "G-3TZX8WYR4P"
 
     })
 
@@ -89,7 +89,7 @@
         });
     
         setFormValue('');
-        dummy.current.scrollIntoView({ behavior: 'smooth' });
+          
       };
     
       const deleteDocumentById = async (collectionName, fieldName, fieldValue) => {
