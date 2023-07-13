@@ -1,4 +1,4 @@
-    import React, { useRef, useState } from 'react';
+    import React, { useRef, useState, useEffect } from 'react';
     import { initializeApp } from 'firebase/app';
     import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
     import { useAuthState } from 'react-firebase-hooks/auth';
@@ -18,13 +18,12 @@
 
 
     const app = initializeApp({
-      apiKey: "AIzaSyBZzBF5gNIARa5PiR3C16ccyWMpKKIqgak",
-  authDomain: "superchat-6af4f.firebaseapp.com",
-  projectId: "superchat-6af4f",
-  storageBucket: "superchat-6af4f.appspot.com",
-  messagingSenderId: "584254523555",
-  appId: "1:584254523555:web:c4da3bf2bd1bdfbf001716",
-  measurementId: "G-3TZX8WYR4P"
+      apiKey: "AIzaSyArhXzyH6S6PyqtdaliRgQ1THV6y9B9l8o",
+      authDomain: "superchatjota.firebaseapp.com",
+      projectId: "superchatjota",
+      storageBucket: "superchatjota.appspot.com",
+      messagingSenderId: "1003928311499",
+      appId: "1:1003928311499:web:3bfcf3e91c7d28d00ced4e"
 
     })
 
@@ -74,6 +73,8 @@
     
       const [messages] = useCollectionData(q, { idField: 'id' });
       const [formValue, setFormValue] = useState('');
+
+      const messageContainerRef = useRef();
     
       const sendMessage = async (e) => {
         e.preventDefault();
@@ -89,8 +90,11 @@
         });
     
         setFormValue('');
+        
           
       };
+
+      
     
       const deleteDocumentById = async (collectionName, fieldName, fieldValue) => {
         const q = query(collection(firestore, collectionName), where(fieldName, '==', fieldValue));
@@ -132,7 +136,7 @@
                   </motion.div>
                 ))}
             </AnimatePresence>
-            <span ref={dummy}></span>
+         
           </main>
           <form onSubmit={sendMessage}>
             <input
