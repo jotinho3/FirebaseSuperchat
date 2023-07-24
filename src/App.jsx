@@ -18,12 +18,12 @@
 
 
     const app = initializeApp({
-      apiKey: "AIzaSyArhXzyH6S6PyqtdaliRgQ1THV6y9B9l8o",
-      authDomain: "superchatjota.firebaseapp.com",
-      projectId: "superchatjota",
-      storageBucket: "superchatjota.appspot.com",
-      messagingSenderId: "1003928311499",
-      appId: "1:1003928311499:web:3bfcf3e91c7d28d00ced4e"
+      apiKey: "AIzaSyAjdxicLYmDmPiCy1FH3dOYBB0NgunI-EQ",
+  authDomain: "superchat-jotinho.firebaseapp.com",
+  projectId: "superchat-jotinho",
+  storageBucket: "superchat-jotinho.appspot.com",
+  messagingSenderId: "669987963573",
+  appId: "1:669987963573:web:cf7c15e18064b72d1ab4fc"
 
     })
 
@@ -67,9 +67,8 @@
     }
     
     function ChatRoom() {
-      const dummy = useRef();
       const messagesRef = collection(firestore, 'messages');
-      const q = query(messagesRef, orderBy('createdAt'), limit(25));
+      const q = query(messagesRef, orderBy('createdAt'), limit(100));
     
       const [messages] = useCollectionData(q, { idField: 'id' });
       const [formValue, setFormValue] = useState('');
@@ -93,6 +92,12 @@
         
           
       };
+
+      useEffect(() => {
+        if (messageContainerRef.current) {
+          messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
+        }
+      }, [messages]);
 
       
     
@@ -121,7 +126,7 @@
     
       return (
         <>
-          <main>
+          <main ref={messageContainerRef} className="message-container">
             <AnimatePresence>
               {messages &&
                 messages.map((msg) => (
@@ -177,3 +182,6 @@
     }
     
     export default App;
+
+
+
